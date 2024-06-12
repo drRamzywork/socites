@@ -11,11 +11,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import Button from '@/components/Utils/Button';
-import Map from '@/components/Icons/svgs/Map';
-
+import { motion } from 'framer-motion';
 
 const LandingV1 = () => {
-  const carouselItems = [{ img: "/imgs/bg/4.jpg" }, { img: "/imgs/bg/3.jpg" }, { img: "/imgs/bg/2.jpg" }, { img: "/imgs/bg/1.jpg" }]
+  const carouselItems = [{ img: "/imgs/bg/4.jpg" }, { img: "/imgs/bg/3.jpg" }, { img: "/imgs/bg/2.jpg" }, { img: "/imgs/bg/1.jpg" }, { img: "/imgs/bg/4.jpg" }, { img: "/imgs/bg/3.jpg" }, { img: "/imgs/bg/2.jpg" }, { img: "/imgs/bg/1.jpg" }, { img: "/imgs/bg/4.jpg" }, { img: "/imgs/bg/3.jpg" }, { img: "/imgs/bg/2.jpg" }, { img: "/imgs/bg/1.jpg" }, { img: "/imgs/bg/4.jpg" }, { img: "/imgs/bg/3.jpg" }, { img: "/imgs/bg/2.jpg" }, { img: "/imgs/bg/1.jpg" }]
   const [swiperInstance, setSwiperInstance] = useState(null);
   const [currentDot, setCurrentDot] = useState(0);
   const breakpoints = {
@@ -60,7 +59,9 @@ const LandingV1 = () => {
               >
                 {carouselItems.map((item, index) => (
                   <SwiperSlide key={index}>
-                    <div className={styles.box}>
+                    <motion.div initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 1.5, type: "tween" }} className={styles.box}>
                       <div className={styles.img_container}>
                         <img src={item.img} alt="" />
 
@@ -80,7 +81,7 @@ const LandingV1 = () => {
 
                       </div>
 
-                    </div>
+                    </motion.div >
                   </SwiperSlide>
                 ))}
               </Swiper>
@@ -112,7 +113,9 @@ const LandingV1 = () => {
             >
               {carouselItems.map((item, index) => (
                 <SwiperSlide key={index}>
-                  <img src={item.img} alt="" />
+                  <motion.img initial={{ opacity: 0, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.5, type: "tween" }} src={item.img} alt="" />
                 </SwiperSlide>
               ))}
             </Swiper>
