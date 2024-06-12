@@ -35,7 +35,9 @@ const LandingV1 = () => {
         <div className="container  mx-auto px-4">
           <div className={styles.sec_container}>
             <div className={styles.map_container}>
-              <img src="/imgs/map.svg" alt="" />
+              <a href="https://societies-v-1.vercel.app/map">
+                <img src="/imgs/map.svg" alt="" />
+              </a>
               {/* <Map /> */}
             </div>
 
